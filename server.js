@@ -13,7 +13,7 @@ var connection = mysql.createConnection({
     host    : 'localhost',
     user    : 'root',
     password: '',
-    database: 'modehub'
+    database: 'movehub'
 });
 
 // Connecting to the mysql database
