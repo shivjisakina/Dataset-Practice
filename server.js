@@ -43,6 +43,9 @@ app.use(bodyParser.json({type: 'application/vnd.api+json'}));
 // Use all of the static files in the public folder
 app.use(express.static('app/public'));
 
+// requiring my  controller js file
+require('./controllers/controller.js')(app);
+
 // Listening to the port
 app.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);

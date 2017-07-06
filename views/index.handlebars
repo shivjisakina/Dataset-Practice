@@ -1,0 +1,41 @@
+<h1>Movehub Ratings App</h1>
+
+<p>Movehub Ratings</p>
+
+<!-- Data gets passed via server.js from this point forward. -->
+<ul>
+    {{#each quotes}}
+        <li>
+            <p><span class="label">City:</span> {{this.City}}</p>
+            <p><span class="label">Country:</span> {{this.Country}}</p>
+
+            {{!-- Form should send a delete command to the server --}}
+            <form method="post" action="/delete/{{this.City}}">
+                <input type="hidden" name="City" value="{{this.City}}">
+                <button type="submit">Delete</button>
+            </form>
+
+            <a action="/update" method="POST" href="/{{this.City}}">Add your city!</a>
+        </li>
+    {{/each}}
+</ul>
+
+</ul>
+
+<h2>Add a City</h2>
+
+{{!-- Form should send a post command to the server --}}
+<form class="create-form" action="/" method="POST">
+
+    <div class="form-group">
+        <label for="auth">Cities</label>
+        <input type="text" id="auth" name="cities">
+    </div>
+
+    <div class="form-group">
+        <label for="quo">Country:</label>
+        <textarea id="quo" name="countries" rows="8" cols="40"></textarea>
+    </div>
+
+    <button type="submit">Add Your City</button>
+</form>
