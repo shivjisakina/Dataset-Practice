@@ -11,14 +11,14 @@ module.exports = function (app) {
         database: 'movehub'
     });
 
-    app.get("/", function(req, res) {
-        connection.query("SELECT * FROM `cities`;", function(err, data) {
+    app.get("/", function(req, res){
+        connection.query("SELECT * FROM `cities` JOIN `cost` WHERE `cities`.`City` = `cost`.`City`;",
+            function(err, data){
+                if (err) {
+                    throw err;
+                }
 
-            if (err) {
-                throw err;
-            }
-
-            res.render("index", {cities: data});
+                res.render("index", {cities: data, cost: data});
 
         });
     });
