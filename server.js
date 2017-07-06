@@ -10,14 +10,14 @@ var PORT = process.env.PORT || 3000;
 
 // Creating the connection to the mysql database
 var connection = mysql.createConnection({
-    host    : 'localhost',
-    user    : 'root',
+    host: 'localhost',
+    user: 'root',
     password: '',
     database: 'movehub'
 });
 
 // Connecting to the mysql database
-connection.connect(function(error) {
+connection.connect(function (error) {
     if (error) {
         throw error;
     }

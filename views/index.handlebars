@@ -13,12 +13,12 @@
             <p><span class="label">Average Disposable Income:</span> £{{this.Avg_Disposable_Income}}</p>
 
             {{!-- Form should send a delete command to the server --}}
-            <form method="post" action="/delete/{{this.City}}">
+            <form method="post" action="/{{this.City}}">
                 <input type="hidden" name="City" value="{{this.City}}">
                 <button type="submit">Delete</button>
             </form>
 
-<!--
+            <!--
             <a action="/update" method="POST" href="/{{this.City}}">Add your city!</a>
 -->
         </li>
@@ -27,6 +27,7 @@
 
 </ul>
 
+<!--
 <h2>Add Your City</h2>
 
 {{!-- Form should send a post command to the server --}}
@@ -43,4 +44,21 @@
     </div>
 
     <button type="submit">Add Your City</button>
+</form>-->
+
+<h2>Add Your City</h2>
+<form class="create-update-form" action="/" method="POST">
+
+    <div class="form-group">
+        <label for="city">City:</label>
+        <input type="text" id="city" name="name">
+    </div>
+
+    <div class="form-group">
+        <label for="country">Country</label><br>
+        <textarea id="quo" name="countries" rows="8" cols="40"></textarea>
+
+    </div>
+
+    <button type="submit">Add City</button>
 </form>
