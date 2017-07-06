@@ -12,7 +12,7 @@ module.exports = function (app) {
     });
 
     app.get("/", function(req, res){
-        connection.query("SELECT * FROM `cities` JOIN `cost` WHERE `cities`.`City` = `cost`.`City`;",
+        connection.query("SELECT * FROM `cities` JOIN `cost` WHERE `cities`.`City` = `cost`.`City` LIMIT 10;",
             function(err, data){
                 if (err) {
                     throw err;
@@ -24,37 +24,12 @@ module.exports = function (app) {
     });
 
     app.post("/", function(req, res) {
-        connection.query("INSERT INTO cities (city) VALUES (?)", [req.body.City],
+        connection.query("INSERT INTO cities (City, Country) VALUES (?, ?)", [req.body.cities, req.body.countries],
             function(err, result) {
                 if (err) {
                     throw err;
                 }
                 res.redirect("/")
-            });
-    });
-
-    app.post("/delete/:id", function(req, res) {
-        connection.query("DELETE FROM quotes WHERE City = ?", [req.params.City], function(err, result) {
-
-            if (err) {
-                throw err;
-            }
-
-            res.redirect("/")
-
-        });
-    });
-
-    app.post("/update", function(req, res) {
-
-        connection.query("UPDATE cities SET City = ? Country = ? WHERE City = ?",
-            [req.body.cities, req.body.countries, req.body.cities], function(err, result) {
-                if (err) {
-                    throw err;
-                }
-
-                res.redirect("/")
-
             });
     });
 

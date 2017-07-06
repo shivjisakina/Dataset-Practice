@@ -8,12 +8,9 @@
         <li>
             <p><span class="label">City:</span> {{this.City}}</p>
             <p><span class="label">Country:</span> {{this.Country}}</p>
-            <p><span class="label">Cappuccino:</span> {{this.Cappuccino}}</p>
-            <p><span class="label">Cinema:</span> {{this.Cinema}}</p>
-            <p><span class="label">Wine:</span> {{this.Wine}}</p>
-            <p><span class="label">Gasoline:</span> {{this.Gasoline}}</p>
-            <p><span class="label">Average Rent:</span> ${{this.Avg_Rent}}</p>
-            <p><span class="label">Average Disposable Income:</span>  ${{this.Avg_Disposable_Income}}</p>
+            <p><span class="label">Gasoline:</span> £{{this.Gasoline}}</p>
+            <p><span class="label">Average Rent:</span> £{{this.Avg_Rent}}</p>
+            <p><span class="label">Average Disposable Income:</span> £{{this.Avg_Disposable_Income}}</p>
 
             {{!-- Form should send a delete command to the server --}}
             <form method="post" action="/delete/{{this.City}}">
@@ -21,14 +18,16 @@
                 <button type="submit">Delete</button>
             </form>
 
+<!--
             <a action="/update" method="POST" href="/{{this.City}}">Add your city!</a>
+-->
         </li>
     {{/each}}
 </ul>
 
 </ul>
 
-<h2>Add a City</h2>
+<h2>Add Your City</h2>
 
 {{!-- Form should send a post command to the server --}}
 <form class="create-form" action="/" method="POST">
