@@ -1,46 +1,66 @@
 <h1>Movehub Ratings App</h1>
 
-<p>Movehub Ratings</p>
-
 <!-- Data gets passed via server.js from this point forward. -->
 <ul>
+
     {{#each cities}}
-        <li>
-            <p><span class="label">City:</span> {{this.City}}</p>
-            <p><span class="label">Country:</span> {{this.Country}}</p>
-            <p><span class="label">Gasoline:</span> £{{this.Gasoline}}</p>
-            <p><span class="label">Average Rent:</span> £{{this.Avg_Rent}}</p>
-            <p><span class="label">Average Disposable Income:</span> £{{this.Avg_Disposable_Income}}</p>
 
-            {{!-- Form should send a delete command to the server --}}
-            <form method="post" action="/{{this.City}}">
-                <input type="hidden" name="City" value="{{this.City}}">
-                <button type="submit">Delete</button>
-            </form>
+        <li><p><span class="label">City:</span> {{this.City}}</p></li>
 
-            <form action="/:City" method="POST" class="button-size">
-                <input type="hidden" name="cityu" value="{{this.City}}" />
-                <a href="/{{this.Country}}" type="text" name="countryu" placeholder="plan"></a>
-                <button type="submit">Update Plan!</button>
-            </form>
-        </li>
+        <li><p><span class="label">Country:</span> {{this.Country}}</p> </li>
+
+        <li><p><span class="label">Gasoline:</span> £{{this.Gasoline}}</p></li>
+
+        <li><p><span class="label">Average Rent:</span> £{{this.Avg_Rent}}</p></li>
+
+        <li><p><span class="label">Average Disposable Income:</span> £{{this.Avg_Disposable_Income}}</p></li>
+
+        {{!-- Form should send a delete command to the server --}}
+        <form action="/{{this.City}}?_method=DELETE" method="POST">
+            <input type="hidden" name="City" value="{{this.City}}">
+            <button type="submit" class="delete">Delete</button>
+        </form>
+
+        <form action="/" method="POST" class="button-size">
+            <input type="hidden" name="cityu" value="{{this.City}}"/>
+            <a href="/update" type="text" name="countryu"></a>
+            <button type="submit" class="update">Update This Information!</button>
+        </form>
+
 
     {{/each}}
+
 </ul>
 
-<h2>Add Your City</h2>
+<h2>Add Your City:</h2>
+
 <form class="create-update-form" action="/" method="POST">
 
     <div class="form-group">
-        <label for="city">City:</label>
+        <label for="cityUpdate">City:</label><br>
         <input type="text" id="city" name="name">
     </div>
 
     <div class="form-group">
-        <label for="country">Country</label><br>
-        <textarea id="quo" name="countries" rows="8" cols="40"></textarea>
+        <label for="countryUpdate">Country</label><br>
+        <input type="text" id="city" name="name">
+    </div>
 
+    <div class="form-group">
+        <label for="gasolineUpdate">Gasoline</label><br>
+        <input type="text" id="city" name="name">
+    </div>
+
+    <div class="form-group">
+        <label for="averageRentUpdate">Average Rent:</label><br>
+        <input type="text" id="city" name="name">
+    </div>
+
+    <div class="form-group">
+        <label for="ADIUpdate">Average Disposable Income</label><br>
+        <input type="text" id="city" name="name">
     </div>
 
     <button type="submit">Add City</button>
+
 </form>

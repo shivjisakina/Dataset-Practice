@@ -41,7 +41,7 @@ app.use(bodyParser.text());
 app.use(bodyParser.json({type: 'application/vnd.api+json'}));
 
 // Use all of the static files in the public folder
-app.use(express.static('app/public'));
+app.use(express.static('public'));
 
 // requiring my  controller js file
 require('./controllers/controller.js')(app);

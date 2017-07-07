@@ -33,8 +33,8 @@ module.exports = function (app) {
             });
     });
 
-    app.delete("/:City", function(req, res) {
-        connection.query("DELETE FROM quotes WHERE City = ?", [req.params.City], function(err, result) {
+    app.delete("/", function(req, res) {
+        connection.query("DELETE FROM cities WHERE City = ?", [req.body.City], function(err, result) {
             if (err) {
                 throw err;
             }
@@ -42,9 +42,9 @@ module.exports = function (app) {
         });
     });
 
-    app.put("/:City", function(req, res) {
-        connection.query("UPDATE cities SET City = ?, City = ? WHERE City = ?", [
-            req.body.cityu, req.body.countryu, req.params.city], function(err, result) {
+    app.get("/:City", function(req, res) {
+        connection.query("UPDATE cities SET City = ?, Country = ?, Gasoline = ?, Avg_Rent = ?, Avg_Disposable_Income = ? WHERE City = ?", [
+            req.body.cityu, req.body.countryu, req.params.cityu], function(err, result) {
             if (err) {
                 throw err;
             }
