@@ -43,7 +43,7 @@ module.exports = function (app) {
     });
 
     app.get("/:City", function(req, res) {
-        connection.query("UPDATE cities SET City = ?, Country = ?, Gasoline = ?, Avg_Rent = ?, Avg_Disposable_Income = ? WHERE City = ?", [
+        connection.query("UPDATE cities SET City = ?, Country = ? WHERE City = ?", [
             req.body.cityu, req.body.countryu, req.params.cityu], function(err, result) {
             if (err) {
                 throw err;
