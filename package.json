@@ -11,6 +11,9 @@
     "type": "git",
     "url": "git+https://github.com/shivjisakina/NodeExpressHandlebars.git"
   },
+  "engines": {
+    "node": "4.1.1"
+  },
   "author": "",
   "license": "ISC",
   "bugs": {
