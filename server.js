@@ -8,13 +8,18 @@ var mysql = require("mysql");
 // Making my port 3000 or process.env.PORT for heroku deployment
 var PORT = process.env.PORT || 3000;
 
-// Creating the connection to the mysql database
-var connection = mysql.createConnection({
-    host: 'bmsyhziszmhf61g1.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-    user: 'iq72tjvr6i2o3uxy	',
-    password: 'gfaw48ferx70athj',
-    database: 'movehub'
-});
+var connection;
+
+if (process.end.JAWSDB_URL) {
+    connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+    connection = mysql.createConnection({
+        host: 'bmsyhziszmhf61g1.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+        user: 'iq72tjvr6i2o3uxy	',
+        password: 'gfaw48ferx70athj',
+        database: 'movehub'
+    });
+}
 
 // Connecting to the mysql database
 connection.connect(function (error) {
